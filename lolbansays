@@ -1,0 +1,16 @@
+#!/bin/bash
+#if having issues on terminals that don't support true color such as urxvt, remove the -t flag after lolcat in each entry
+if [ $# -ne 2 ]; then
+	echo Too many, or too litte wrong flags detected. Please write your phrase within quotes and use -es for spanish pronunciation or -us for english pronunciation
+else
+	if [ "$1" == "-es" ]; then
+		figlet -f 3d.flf "$2" | lolcat -a -s 120
+		espeak-ng -v roa/es "$2"
+	elif [ "$1" == "-us" ] 
+		then
+		figlet -f 3d.flf "$2" | lolcat -a -s 120
+		espeak-ng -v gmw/en-US "$2"
+	else
+	echo Please use -es or -us as language flags	
+	fi
+fi
